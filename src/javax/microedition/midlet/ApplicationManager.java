@@ -620,9 +620,9 @@ public class ApplicationManager {
         frame.setMenuBar(createMenuBar());
       }
 
-      screenWidth = getIntProperty("width", getIntProperty("screen.width", 150));
+      screenWidth = getIntProperty("width", getIntProperty("screen.width", 320));
       screenHeight = getIntProperty("height", getIntProperty("screen.height",
-          200));
+          480));
 
       frame.addWindowListener(new java.awt.event.WindowAdapter() {
         public void windowClosing(java.awt.event.WindowEvent ev) {
