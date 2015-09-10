@@ -1,0 +1,90 @@
+<html>
+<head><title>Running me4se on PocketPC (WindowsCE)</title></head>
+<body bgcolor="#ffffff">
+
+<!--#include virtual="../prolog.shtml" -->
+
+
+<h1>Running me4se on PocketPC (WindowsCE)</h1>
+<p><font size="1" face="Arial">Version 3.</font></p>
+<h3>Introduction</h3>
+<p><a href="../index.shtml" target="_top">me4se</a> is a library, which effectively constitutes simulator of MIDP device. me4se, as its name indicates ("me" for "se" - Java  
+micro edition for Java standard edition) is designed to run on "standard" Java, meaning more or less Java as you can find 
+on personal computer with Windows XP, Linux or Mac OS X. In this article we are showing that 
+<i>me4se</i> can be used also in PDA computers, which are equipped with operating system Windows CE (PocketPC).
+
+</p>
+<p>It is worth mentioning that PocketPC, being product of Microsoft, is for some 
+reason neglected by Sun Microsystems, which is releasing JVM with MIDP for PDAs with PalmOS, but is not continuing development of JVM for PocketPC (WindowsCE).</p>
+<p>"PocketPC 2002" is an overlay with applications running on underlying WindowsCE 3.0. Since PDAs with PocketPC are usually more powerful than those with Palm OS, therefore standard version of JVM for them is PersonalJava, not J2ME, as it is the case for Palm OS. Sun has ceased development of JVM for WindowsCE - the latest version of JVM with PersonalJava (1.1) is developed for Windows 2.11 - quite old version. Fortunately this old JVM also works more or less on PocketPC 2002. Those who want to have newest PersonaJava (1.2) can buy it: Jeode VM.</p>
+<h3>Running midlets with me4se by use of Jeode JVM from Insignia</h3>
+<p>Jeode JVM is included in standard package with iPAQ 3800 series, like 3850 or 
+3870 or can be bought separately for about 20 USD (click
+<a target="_top" href="http://www.handango.com/jeode">here</a> to buy it online).</p>
+<p>Please follow instructions below to run midlets on your PocketPC</p>
+<ol>
+<li>Check if you have the Jeode JVM properly installed, and install it if you don't. You can locate it in file: /Windows/evm.exe . Double click this file in some file explorer to check if it runs. A window with title "EVMConsole" should appear 
+(you can enter &quot;-version&quot; to check exactly what version you have):<br>
+<img border="0" src="image1.gif" width="240" height="320"><br>
+... and you can close this window now.</li>
+<li>Copy files me4se.jar, and png.jar - which both are needed to run the me4se 
+to the &quot;/Java/&quot; directory. This name and location is just our choice but you can 
+place it in any different directory.</li>
+<li>Copy your midlets - *.jar files into the same &quot;/Java/&quot; directory as above 
+and copy *.jad files of your midlets to &quot;/My Documents/Java/&quot;.</li>
+<li>Now use file explorer to make a shortcut. First copy the file from /Windows/evm.exe 
+:<br>
+<img border="0" src="image2.gif" width="240" height="320"><br>
+Please use &quot;hold down&quot; feature: hold the stylus down on the evm.exe file, for a 
+longer period, without moving it, so that this context menu appeas, then select 
+&quot;copy&quot;. Having it in clipboard go with the file explorer to the directory &quot;/My 
+Documents/Java/&quot; (create it before if you don't have it there), and with the 
+same hold down trick make there a shortcut by selecting &quot;Paste Shortcut&quot; in the 
+context menu. This shortcut needs to be in some subdirectory of &quot;/My Documents/&quot; 
+because we intend to edit this file later, and such files to be edited should be 
+located in some subdirectory of &quot;/My Documents/&quot;.</li>
+<li>Rename the file &quot;/My Documents/Java/Shortcut to evm.lnk&quot; to &quot;/My 
+Documents/Java/XXXX.lnk&quot; where XXXX is a name of your midlet, for example to &quot;SpruceTester.lnk&quot;.</li>
+<li>Now open some notepad (text editor; we use PocketNotepad from
+<a target="_top" href="http://www.tillanosoft.com">www.tillanosoft.com</a> ) and open *.jad 
+file of given midlet to check two things: name of the JAR file for this midlet, 
+and name of the main class. Copy the name of the class to the clipboard, for 
+example &quot;org.spruce.midp.tester.Tester&quot;.</li>
+<li>Now using the notepad open previously renamed link to the JVM, for example 
+open &quot;SpruceTester.lnk&quot; and edit it so that it will contain something like this:<br>
+<font face="Courier">18#&quot;\Windows\evm.exe&quot; -cp /Java/me4se.jar;/Java/png.jar;/Java/SpruceTester.jar 
+org.me4se.MIDletRunner org.spruce.midp.tester.Tester -width 200 -height 200</font></li>
+<li>Now with file explorer double click (tap) the link file, for example 
+SpruceTester.lnk and you will be able to observe the midlet running on the 
+PocketPC:<br>
+<img border="0" src="image3.gif" width="240" height="320"><br>
+(please note that you can actually see the midlet in exactly the size as 
+specified in previous step)</li>
+</ol>
+<p>Here is another example of midlet running on PocketPC:<br>
+<img border="0" src="image4.gif" width="240" height="320"><br>
+... where you can see that if your PocketPC is connected to Internet (either 
+through wireless network or is just in cradle and pass-through is switched on in 
+ActiveSync) then also you can use networked midlets (here: Spruce Quotes).</p>
+<h3>Running midlets with <i>me4se</i> by use of Sun's PersonalJava JVM</h3>
+Please follow similar steps as above. However remember that this JVM implements 
+PersonalJava of older version: 1.1, and is developed for WindowsCE 2.11 so it 
+runs on WindowsCE 3.0 / PocketPC 2002 only because of backwards compatibility.<p>
+You can find this JVM from this link:
+<a target="_top" href="http://developer.java.sun.com/developer/earlyAccess/personaljava/
+
+">http://developer.java.sun.com/developer/earlyAccess/personaljava/</a>. </p>
+<h3>Conclusion</h3>
+<p>Most probably sooner or later Jeode JVM or some other Java Virtual Machines 
+for PocketPC platform will have MIDP built-in as standard. But for now, although 
+not perfect (because designed for standard Java, thus some problems may occur), 
+the <i>me4se</i> library can quite well serve the purpose as MIDP simulator on 
+PocketPC or WindowsCE portable computers.</p>
+<hr>
+<p>Copyright 2002 by <a target="_top" href="http://spruce.jp/freemidlets/">Spruce Technologies</a>.<br>All rights reserved.<br>
+&nbsp;</p>
+
+<!--#include virtual="../epilog.shtml" -->
+
+</body>
+</html>

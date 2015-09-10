@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="opt/pim/src"/>
+	<classpathentry kind="src" path="opt/bluetooth/src_gcfimpl_avetanabt"/>
+	<classpathentry kind="src" path="res"/>
+	<classpathentry kind="src" path="opt/contactless/src"/>
+	<classpathentry kind="src" path="opt/location/src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="lib/emptycommapi.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/kobjects-j2se.jar"/>
+	<classpathentry exported="true" kind="lib" path="opt/contactless/lib/Phidget21.jar"/>
+	<classpathentry kind="lib" path="opt/bluetooth/lib/avetanaBluetooth.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

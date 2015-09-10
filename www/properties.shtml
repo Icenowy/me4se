@@ -1,0 +1,103 @@
+<html>
+<head><title>ME4SE Configuration Properties</title></head>
+<body bgcolor="#ffffff">
+
+<!--#include virtual="prolog.shtml" -->
+
+<h1>ME4SE Configuration Properties</h1>
+<h3>Author: Michael Kroll</h3>
+
+<p>ME4SE supports three different kinds of emulation properties:</p>
+
+<ul>
+<li>Regular command line parameters</li>
+<li>Applet parameters</li>
+<li>System properties</li>
+</ul>
+
+<p>Please use command line or applet parameters where possible. Using system 
+properties (-d) is not recommended.</p>
+
+
+<table border="1">
+	<tr>
+		<th>Property name</th>
+		<th>Values</th>
+       
+		<th>Description</th>
+	</tr>
+
+	<tr>
+		<td>me4se.implementation</td>
+		<td>package name prefixes, separated by ";"</td>
+		<td>Instructs ME4SE to search for implementation classes with the
+		    given prefix. The default is "org.me4se.psi.java1".</td>
+	</tr>
+
+    <tr>
+			<td>me4se.jam.homedir</td>
+			<td>a directory name</td>
+			<td>This property must be specified in order to set an directory where the
+			    MIDlets should be stored in the xME4SE JAM.</td>		
+		</tr>
+		
+
+
+	<tr>
+		<td>me4se.comm.enable</td>
+		<td>true</td>
+		<td>This property must be specified in order to initialize the <b>CommConnection</b> implementation
+		     of ME4SE. If this property is not set <b>microedition.commports</b> will return an invalid value.</td>		
+		     
+	</tr>
+
+	<tr>
+		<td>me4se.wma.comenable</td>
+		<td>true</td>
+		<td>This property must be specified in order to initialize the Wireless Messaging API implementation
+		     of ME4SE based on the javax.comm API.</td>
+	</tr>
+
+	<tr>
+		<td>me4se.wma.d211enable</td>
+		<td>true</td>
+		<td>This property must be specified in order to initialize the Wireless Messaging API implementation
+		     of ME4SE on top of the Nokia D211 multimode card.</td>		
+		     
+	</tr>
+
+	<tr>
+		<td>me4se.wma.debug</td>
+		<td>true</td>
+		<td>This property must be specified in order to enable debug output of the WMA implementation.</td>		
+	</tr>
+	
+	<tr>
+		<td>me4se.wma.commport</td>
+		<td>the javax.comm specifier for a given comport</td>
+		<td>This property must be specified if <b>me4se.wma.comenable</b> is set
+		    in order to set the comport used for communication with the GSM terminal.</td>		
+	</tr>
+	
+	<tr>
+		<td>me4se.wma.baudrate</td>
+		<td>the javax.comm specifier for a given baudrate</td>
+		<td>This property must be specified if <b>me4se.wma.comenable</b> is set
+		    in order to set the baudrate of the comport used for communication with the GSM terminal.</td>		
+	</tr>
+
+	<tr>
+		<td>me4se.rms.home</td>
+		<td>a directory name</td>
+		<td>This property must be specified in order to set an RMS directory where the
+		    RecordStores of a MIDlet should be stored. Default is the current directory '.'.</td>		
+	</tr>
+
+	
+		
+	</table>
+</body>
+
+<!--#include virtual="epilog.shtml" -->
+
+</html>
